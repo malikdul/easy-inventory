@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e6ebc82a-a795-49ad-8316-ef71d43e2868" activeEnvironment="Default" name="EasyInventory" soapui-version="5.4.0-EB" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="a751fefe-1919-4126-b138-25d7e3680671" wadlVersion="http://wadl.dev.java.net/2009/02" name="EasyInventory" type="rest" basePath="/api/" definitionUrl="http://localhost:8080/api/application.wadl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/api/application.wadl"><con:part><con:url>http://localhost:8080/api/application.wadl</con:url><con:content><![CDATA[<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc jersey:generatedBy="Jersey: 2.23.2 2016-08-08 17:14:55" xmlns:jersey="http://jersey.java.net/"/>
+  <doc jersey:hint="This is simplified WADL with user and core resources only. To get full WADL with extended resources use the query parameter detail. Link: http://localhost:8080/api/application.wadl?detail=true" xmlns:jersey="http://jersey.java.net/"/>
+  <grammars/>
+  <resources base="http://localhost:8080/api/">
+    <resource path="/swagger.{type:json|yaml}">
+      <param name="type" style="template" type="xs:string" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method id="getListing" name="GET">
+        <response>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/yaml"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="inventory">
+      <resource path="/order/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="getOrder" name="GET">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+        <method id="deleteOrder" name="DELETE">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/product/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="deleteProduct" name="DELETE">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/sale/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="deleteSale" name="DELETE">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+        <method id="getSale" name="GET">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/supplier/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="deleteSupplier" name="DELETE">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/product/all">
+        <method id="getProducts" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/supplier/add">
+        <method id="addSupplier" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/supplier/all">
+        <method id="getSuppliers" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/order/add">
+        <method id="addOrder" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/order/all">
+        <method id="getOrders" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/stock/all">
+        <method id="getStock" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/sale/add">
+        <method id="manageBooking" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/sale/all">
+        <method id="getSale" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/lookup/add">
+        <method id="addLookup" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/product/add">
+        <method id="addProduct" name="POST">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/supplier/frequency">
+        <method id="getSupplierFrequencyReport" name="GET">
+          <request>
+            <representation mediaType="application/json"/>
+          </request>
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/order/supplier/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="getOrdersBySupplier" name="GET">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/lookup/all">
+        <method id="getAlllookupValues" name="GET">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+      <resource path="/lookup/{id}">
+        <param name="id" style="template" type="xs:int" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+        <method id="deleteLookup" name="DELETE">
+          <response>
+            <representation mediaType="application/json"/>
+          </response>
+        </method>
+      </resource>
+    </resource>
+  </resources>
+</application>]]></con:content><con:type>http://wadl.dev.java.net/2009/02</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="/swagger.{type:json|yaml}" path="/swagger.{type:json|yaml}{type}" id="e585dae5-3fb4-413d-9b94-794a94b13188"><con:settings/><con:parameters><con:parameter><con:name>type</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET - getListing" id="92db4cd3-ed51-441a-ada7-468a7ac3560e" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/yaml</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="1b30a54f-c41b-46f6-92a4-221b85d1c12d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="inventory" path="inventory" id="416bcff6-d4fb-47b0-b542-625949a457b4"><con:settings/><con:parameters/><con:resource name="/order/{id}" path="/order/{id}" id="b02bf78e-1875-4d06-9e68-c7016418596c"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET - getOrder" id="59960b69-7fd3-4550-a185-992cec60a708" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="26111f46-8977-4002-a66d-b07a25b6fc82" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method><con:method name="DELETE - deleteOrder" id="0e0019ed-bfb2-40a6-956c-f4d41cbbdd31" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="239e61a7-0d3b-4f15-90e6-296ea8ab4cbe" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/product/{id}" path="/product/{id}" id="52e85b4d-66ef-44fb-ab7a-53c293b0e637"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE - deleteProduct" id="df87b632-09a5-4380-9bc2-1d79180e6324" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="a6aebbd4-e1a5-4f70-a8ca-bbf2d78b90c0" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/sale/{id}" path="/sale/{id}" id="a155d409-a621-4230-bc76-ab665b14a398"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE - deleteSale" id="052a3b2f-7fd4-454f-bcf4-2ece00c0866a" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="3d9a57a4-3034-44f7-ba96-5430cf8bc4a6" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method><con:method name="GET - getSale" id="058b8e28-511e-45a4-bf6c-f37e91422739" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="298a9f73-5113-48c2-8354-aaa0d13490f1" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/supplier/{id}" path="/supplier/{id}" id="d453cdfa-368d-419f-801a-13a9761ebe8c"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE - deleteSupplier" id="521161fa-abab-4dc7-afbc-c523d68ee1b8" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="b71d6cef-7000-4078-9c0e-e2707992a7dd" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/product/all" path="/product/all" id="41533a0d-0c84-4514-88d1-0844b45b5c33"><con:settings/><con:parameters/><con:method name="POST - getProducts" id="d28e0d10-1b25-4be4-8f0c-b6a85c95d541" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/supplier/add" path="/supplier/add" id="5cc8cc93-a60a-4edd-9f97-c9678e6904d9"><con:settings/><con:parameters/><con:method name="POST - addSupplier" id="4223f050-5be6-4019-a2e6-633b704732b4" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="a8f996af-e18f-4873-9a40-592091252e73" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/supplier/all" path="/supplier/all" id="f865bec7-ee16-4a57-a80c-a4cd58ed6784"><con:settings/><con:parameters/><con:method name="POST - getSuppliers" id="de245db6-dd0a-404a-987f-48e4ff9f30ea" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="7646f9f6-2413-486c-bb44-d7d10072db85" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/order/add" path="/order/add" id="99a07ddf-b6df-4288-8923-0666a5fefd3c"><con:settings/><con:parameters/><con:method name="POST - addOrder" id="58ccedf4-0909-4314-a6c7-ef1998d3f9fa" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="79c28a9f-0526-4c05-83c5-6165affd5917" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/order/all" path="/order/all" id="8238ec16-2306-4508-bf63-392066755657"><con:settings/><con:parameters/><con:method name="POST - getOrders" id="2f8fe000-996a-43ff-b2b1-01c25b5e55d1" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="f3ed3906-10ac-449f-93b2-196c6678ddd6" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/stock/all" path="/stock/all" id="78273550-a8d0-4679-b25d-805aa8b695ce"><con:settings/><con:parameters/><con:method name="POST - getStock" id="307a0263-77e7-4a6b-b397-4f702a61b24c" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="0805f044-d985-47bf-b637-49746bfcd699" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/sale/add" path="/sale/add" id="984c1976-6c70-4d76-84bc-b00c1531d866"><con:settings/><con:parameters/><con:method name="POST - manageBooking" id="c4254ddd-34bb-40da-b7e9-5abb71ffdd21" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="7f520f6a-f297-440f-a47c-24e6def594a6" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/sale/all" path="/sale/all" id="ce16a044-7a78-44ba-b010-3578855775a0"><con:settings/><con:parameters/><con:method name="POST - getSale" id="a98941d4-d69d-4f1b-ade6-e35fdbf90857" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="e0f4ab4e-0bab-4ad4-b025-77022a5057c7" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/lookup/add" path="/lookup/add" id="b127941d-a0f3-46b2-9589-f12e65c09568"><con:settings/><con:parameters/><con:method name="POST - addLookup" id="02061377-97bb-4aef-9bab-79e47503075a" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="61245fed-36fa-4d38-aa8b-45b0931b5d8d" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/product/add" path="/product/add" id="422817aa-eba7-438b-97b5-77dfa24cc616"><con:settings/><con:parameters/><con:method name="POST - addProduct" id="580fb864-532b-4162-b8d2-d0ac48a648d1" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="5a8d7234-a7e7-4278-a056-d43845748bec" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/supplier/frequency" path="/supplier/frequency" id="aadebc31-3ec9-4826-8bb5-7aa7b4296959"><con:settings/><con:parameters/><con:method name="GET - getSupplierFrequencyReport" id="7b043c21-b9e1-4ef3-8d3c-b5b25b596af0" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="7d69ba16-dab3-4ce5-9660-7997feea5a44" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/order/supplier/{id}" path="/order/supplier/{id}" id="7f34c4b5-6a4f-4984-9c6b-5c509c192616"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET - getOrdersBySupplier" id="e4bde5a3-08f5-47c2-938e-645c5ed40642" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="6a00b61a-1ec2-496b-9aa6-1f15644dc6a0" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/lookup/all" path="/lookup/all" id="fe36407a-6c6b-43a0-b77c-08aa4055ed32"><con:settings/><con:parameters/><con:method name="GET - getAlllookupValues" id="af85952d-92de-4917-bcf4-4851589f0e50" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="412fb898-d8e6-4b33-b087-7951ac51c121" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource><con:resource name="/lookup/{id}" path="/lookup/{id}" id="4dde2450-bf22-46c7-9af9-751bf2cb10cf"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value xsi:nil="true"/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:int</con:type><con:default xsi:nil="true"/></con:parameter></con:parameters><con:method name="DELETE - deleteLookup" id="d5c86fb3-4aa8-410a-9bed-0f4d0d76addf" method="DELETE"><con:settings/><con:parameters/><con:representation type="RESPONSE" id=""><con:mediaType>application/json</con:mediaType><con:params/><con:element xsi:nil="true"/><con:description xsi:nil="true"/></con:representation><con:request name="Request 1" id="8c308bab-e278-4867-bf63-f54371ba6689" mediaType="application/json"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:request></con:method></con:resource></con:resource></con:interface><con:testSuite id="16c6272c-4623-4bf4-b463-7d3d61982a86" name="Product"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="3115ad7d-f1a8-4969-82cb-b8f5b0cefd98" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="clean" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="clean db" id="7d753b9c-27fb-45bc-a58b-e477598c739c"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#dbDriver}</con:driver><con:connectionString>${#Project#dbConStr}</con:connectionString><con:query>DELETE FROM product;</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="b865212a-9520-4a94-89aa-fb7f9a744730" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="add" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="b0a0d000-bd04-4981-958b-c94f9fe34704"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 0
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>name</path><content>ProductA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.setPropertyValue("productId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="b9220e5d-c65a-41af-bb94-ef25765838df"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="f914b52b-020f-4d4e-b689-959d6256c91e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="update/edit" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="c3e5e83f-ab96-4053-b157-840c25556cbe"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "id": ${#TestSuite#productId},
+  "name": "ProductA",
+  "description": "example product a descrion updated",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>name</path><content>ProductA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="update matched"><con:configuration><path>description</path><content>example product a descrion updated</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="96c2f41d-0736-4af6-9dbd-c7bc5e7b6244"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="1513fde8-e0e2-47b3-8b3f-db369de14d1f" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAll" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="add 2nd product" id="5925adda-943b-4169-9161-43c7a7fede9d"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="add 2nd product" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductB",
+  "description": "example product b",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 0
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>name</path><content>ProductB</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="d4dc26e9-5e2e-42ab-a1be-47ad6e567f91" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = context.expand('${add 2nd product#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.project.setPropertyValue("productId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="fb96d98c-5a22-4801-a3a2-587ac944a42f"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/all" methodName="POST - getProducts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 2
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="e9993628-f556-4b31-8362-5cd65955b77e"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="038e99a7-da7a-49b9-a0b4-19ab3d0480d0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="delete" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="delete product" id="b19ce5a3-a7a5-4aa0-9799-e14bf69f3164"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/{id}" methodName="DELETE - deleteProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete product" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>info</path><content>product deleted.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#TestSuite#productId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="3a95f6de-0bd7-48ef-a0ff-f7c4276dded1"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/all" methodName="POST - getProducts" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 1
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>productId</con:name><con:value>28</con:value></con:property></con:properties></con:testSuite><con:testSuite id="935ce33a-d94a-4896-a36d-aac2c80d3f0a" name="Supplier"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9bbcf233-88e5-4a80-9862-367c39e6551d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="clean" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="clean db" id="26a53089-5cb5-48c0-b2a0-9a69073dbfa1"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#dbDriver}</con:driver><con:connectionString>${#Project#dbConStr}</con:connectionString><con:query>DELETE FROM supplier;</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a037ab47-c19a-443e-b018-0796867c754c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="add" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="475370a9-452b-4e72-9c86-596b54366870"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/add" methodName="POST - addSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "SupplierA",
+  "contactPerson": "John Doe",
+  "description": "Good Supplier of A",
+  "frequency": 0,
+  "telecoms": [
+    {
+      "telecomString": "92123456987",
+      "code": 123,
+      "country": 92
+    }
+  ],
+  "addresses": [
+    {
+      "line1": "line 1",
+      "line2": "line 2",
+      "city": "some city"
+    }
+  ],
+  "type": "type a"
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>name</path><content>SupplierA</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.setPropertyValue("supplierId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="4dc06ccc-7d65-4469-8a4f-abb3718c8ae0"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/add" methodName="POST - addSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "SupplierA",
+  "contactPerson": "John Doe",
+  "description": "Good Supplier of A",
+  "frequency": 0,
+  "telecoms": [
+    {
+      "telecomString": "92123456987",
+      "code": 123,
+      "country": 92
+    }
+  ],
+  "addresses": [
+    {
+      "line1": "line 1",
+      "line2": "line 2",
+      "city": "some city"
+    }
+  ],
+  "type": "type a"
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="b42b85ba-2469-4a10-8781-27fcad9d6324" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${fail - duplicate#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse);
+
+assert slurperresponse.message.contains("supplier with this name already exists");
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="76f0c795-862a-4dc4-a961-d16e8f0397f1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="update/edit" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="7a76eac5-12e2-4b65-8ce1-3aabd3206b49"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/add" methodName="POST - addSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+ "id": ${#TestSuite#supplierId},
+   "name": "SupplierA",
+  "contactPerson": "John Doe updated",
+  "description": "Good Supplier of A",
+  "frequency": 0,
+  "telecoms": [
+    {
+    	"id": 1,
+      "telecomString": "92123456987",
+      "code": 123,
+      "country": 92
+    }
+  ],
+  "addresses": [
+    {
+    	"id": 1,
+      "line1": "line 1",
+      "line2": "line 2",
+      "city": "some city"
+    }
+  ],
+  "type": "type a"
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>contactPerson</path><content>John Doe updated</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="250f190a-36bb-4f01-9e9d-760100880520"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/add" methodName="POST - addSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+   "name": "SupplierA",
+  "contactPerson": "John Doe updated",
+  "description": "Good Supplier of A",
+  "frequency": 0,
+  "telecoms": [
+    {
+    	"id": 1,
+      "telecomString": "92123456987",
+      "code": 123,
+      "country": 92
+    }
+  ],
+  "addresses": [
+    {
+    	"id": 1,
+      "line1": "line 1",
+      "line2": "line 2",
+      "city": "some city"
+    }
+  ],
+  "type": "type a"
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="580334c0-cd7e-4385-8d8c-bca700b8dbcb" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${fail - duplicate#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse);
+
+assert slurperresponse.message.contains("supplier with this name already exists");
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a69bebcf-c49c-46ad-a990-4e7a51351bce" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAll" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="add 2nd supplier" id="a422b2b5-ce5e-4472-a890-5ad46afd82e2"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/add" methodName="POST - addSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="add 2nd supplier" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+   "name": "SupplierB",
+  "contactPerson": "John Doe",
+  "description": "Good Supplier of B",
+  "frequency": 0,
+  "telecoms": [
+    {
+      "telecomString": "921234569879",
+      "code": 123,
+      "country": 92
+    }
+  ],
+  "addresses": [
+    {
+      "line1": "line 1",
+      "line2": "line 2",
+      "city": "some city"
+    }
+  ],
+  "type": "type b"
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>name</path><content>SupplierB</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="f56ff834-ff47-4e71-9f92-49f9858a77e3" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = context.expand('${add 2nd supplier#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.project.setPropertyValue("supplierId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="80ca12df-d2e2-4f0e-a685-f5bd08dbe5c4"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/all" methodName="POST - getSuppliers" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 2
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="a7572c4b-f990-470c-816c-be7886fe2b60" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="delete" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="delete" id="d9f12175-e68f-47e0-a26d-8e2484d20085"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/{id}" methodName="DELETE - deleteSupplier" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>info</path><content>Supplier deleted.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#TestSuite#supplierId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="b7f1288e-52c6-4732-af0b-ef9a35e2dcd2"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/supplier/all" methodName="POST - getSuppliers" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 1
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>productId</con:name><con:value>13</con:value></con:property><con:property><con:name>supplierId</con:name><con:value>15</con:value></con:property></con:properties></con:testSuite><con:testSuite id="ab193db4-5186-4e19-be5d-35dca5c361cc" name="Order"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="33d0b5f6-5839-4699-9c69-1e38fd6403ac" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="clean" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="clean db" id="cb9e7683-c1db-4fa2-aa50-4f64962e98dc"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#dbDriver}</con:driver><con:connectionString>${#Project#dbConStr}</con:connectionString><con:query>DELETE FROM orders;</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="79cf1938-4223-435f-a615-83acce2185b8" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="add" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="b68a8a48-abb8-4d32-b67b-21c28a527dfd"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/add" methodName="POST - addOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "status": "pending",
+  "orderDate": "2018-01-06T18:12:09.114Z",
+  "expectedDate": "2018-01-06T18:12:09.114Z",
+  "deliveryDate": "2018-01-06T18:12:09.114Z",
+  "notes": "product b order",
+  "type": "type b",
+  "paymentMode": "manual",
+  "paymentStatus": "not paid yet",
+  "totalCost": 100,
+  "totalPaid": 0,
+  "totalBalance": 100,
+  "supplierId": ${#Project#supplierId},
+  "details": [
+    {
+      "productId": ${#Project#productId},
+      "purchaseUnit": "20 ml",
+      "purchasePrice": 100,
+      "quantity": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>status</path><content>pending</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.setPropertyValue("orderId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="14bb8c05-223d-49fa-aaba-a49c7eacede6" disabled="true"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="e918e5dc-3408-42d4-8568-481a73e33394" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="update/edit" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="happy" id="10312105-2ef3-46b4-8691-e568ad40e94e"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/add" methodName="POST - addOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "id": ${#TestSuite#orderId},
+  "status": "pending",
+  "orderDate": "2018-01-06T18:12:09.114Z",
+  "expectedDate": "2018-01-06T18:12:09.114Z",
+  "deliveryDate": "2018-01-06T18:12:09.114Z",
+  "notes": "product b order",
+  "type": "type b",
+  "paymentMode": "manual",
+  "paymentStatus": "not paid yet",
+  "totalCost": 100,
+  "totalPaid": 0,
+  "totalBalance": 100,
+  "supplierId": ${#Project#supplierId},
+  "details": [
+    {
+      "productId": ${#Project#productId},
+      "purchaseUnit": "20 ml",
+      "purchasePrice": 100,
+      "quantity": 3
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>status</path><content>pending</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="7d0c6939-b2a6-4845-8d65-8baeec84d438" disabled="true"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="8415e1c0-f1e9-4c55-a45c-1d5359257155" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAll" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="add 2nd order" id="b3c89524-d3f1-4aba-a5e6-195d5742bcad"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/add" methodName="POST - addOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="add 2nd order" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "status": "pending",
+  "orderDate": "2018-01-06T18:12:09.114Z",
+  "expectedDate": "2018-01-06T18:12:09.114Z",
+  "deliveryDate": "2018-01-06T18:12:09.114Z",
+  "notes": "product b order",
+  "type": "type b",
+  "paymentMode": "manual",
+  "paymentStatus": "not paid yet",
+  "totalCost": 100,
+  "totalPaid": 0,
+  "totalBalance": 100,
+  "supplierId": ${#Project#supplierId},
+  "details": [
+    {
+      "productId": ${#Project#productId},
+      "purchaseUnit": "20 ml",
+      "purchasePrice": 100,
+      "quantity": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>status</path><content>pending</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="c5fe1a36-8e9d-42d6-8a68-a7c423e23104" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = context.expand('${add 2nd order#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.project.setPropertyValue("orderId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="d5d3a98c-4c83-4e57-9485-6e33999b59ef"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/all" methodName="POST - getOrders" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 2
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="fail - duplicate" id="af76955f-69d2-481a-9442-a19ee502dcdf" disabled="true"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/product/add" methodName="POST - addProduct" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="fail - duplicate" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "name": "ProductA",
+  "description": "example product a",
+  "category": "CatA",
+  "disposable": false,
+  "unit": "10 ml",
+  "reorderPoint": 10
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>message</path><content>ProductA already exists.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="775a8602-3d17-42d5-9fa8-66e7baf6b8bd" name="Valid HTTP Status Codes"><con:configuration><codes>400</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:testCase id="24309bcc-d170-4557-a7b1-f2bee5713669" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="delete" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="delete order" id="c7332d60-2089-44ed-ac0f-6e510027b0a2"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/{id}" methodName="DELETE - deleteOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="delete order" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>info</path><content>order deleted.</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#TestSuite#orderId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="a4b57035-e6fe-4e2b-a9a4-0d3bcf36cc10"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/all" methodName="POST - getOrders" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 1
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>orderId</con:name><con:value>10</con:value></con:property></con:properties></con:testSuite><con:testSuite id="9c9a059d-4e6f-432b-b6bc-f8de3926a937" name="Stock"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="72a28644-a7e4-44cb-a29e-47b74e2a1a69" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="clean" searchProperties="true"><con:settings/><con:testStep type="jdbc" name="clean db" id="425b7f85-20c0-4b46-a50e-200b91ac329f"><con:settings/><con:config xsi:type="con:JdbcRequestTestStep" convertColumnNamesToUpperCase="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:driver>${#Project#dbDriver}</con:driver><con:connectionString>${#Project#dbConStr}</con:connectionString><con:query>DELETE FROM stock;</con:query><con:properties/></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="a0372ac8-5c1a-4be6-8d81-ec06a2a42cc1" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAll" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="mark order received" id="d0d80561-1028-4e70-805a-1d79236f87b1"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/order/add" methodName="POST - addOrder" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="mark order received" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  "id": ${#Project#orderId},
+  "status": "received",
+  "orderDate": "2018-01-06T18:12:09.114Z",
+  "expectedDate": "2018-01-06T18:12:09.114Z",
+  "deliveryDate": "2018-01-06T18:12:09.114Z",
+  "notes": "product b order",
+  "type": "type b",
+  "paymentMode": "manual",
+  "paymentStatus": "not paid yet",
+  "totalCost": 100,
+  "totalPaid": 0,
+  "totalBalance": 100,
+  "supplierId": ${#Project#supplierId},
+  "details": [
+    {
+      "productId": ${#Project#productId},
+      "purchaseUnit": "20 ml",
+      "purchasePrice": 100,
+      "quantity": 2
+    }
+  ]
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="c82b10b0-1fee-49ca-a5de-d4006214e6ad" name="JsonPath Match"><con:configuration><path>status</path><content>received</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="d4dc26e9-5e2e-42ab-a1be-47ad6e567f91" name="Script Assertion" disabled="true"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+def response = context.expand('${add 2nd product#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id);
+
+messageExchange.modelItem.testCase.testSuite.project.setPropertyValue("productId", slurperresponse.id.toString())
+</scriptText></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="a2a1ada4-8bbc-44fd-b08f-0f04954bd77f" name="JsonPath notes"><con:configuration><path>notes</path><content>product b order</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="happy" id="3ff4c975-86e1-4d81-b1a7-8e3d9ba19ff0"><con:settings/><con:config service="EasyInventory" resourcePath="/api/inventory/stock/all" methodName="POST - getStock" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="happy" id="dfd9686b-6e09-47b5-9839-8ff71c0f9e66" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request>{
+  
+}</con:request><con:originalUri>http://localhost/api/inventory/product/add</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="8e6affbe-f706-4b98-bb61-0abc0d928ed1" name="Valid HTTP Status Codes"><con:configuration><codes>200, 201</codes></con:configuration></con:assertion><con:assertion type="GroovyScriptAssertion" id="0f2866e6-0c79-4b6b-a628-3b980b0bb4af" name="Script Assertion"><con:configuration><scriptText>import groovy.json.JsonSlurper
+
+log.info messageExchange.modelItem.testCase.getTestStepByName("happy").getPropertyValue("response");
+def response = context.expand('${happy#Response}');
+log.info response;
+slurperresponse = new JsonSlurper().parseText(response)
+log.info (slurperresponse.id.size());
+
+assert slurperresponse.id.size() == 1
+</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties><con:property><con:name>productId</con:name><con:value>7</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>productId</con:name><con:value>22</con:value></con:property></con:properties></con:testSuite><con:properties><con:property><con:name>dbDriver</con:name><con:value>com.mysql.jdbc.Driver</con:value></con:property><con:property><con:name>dbUser</con:name><con:value>root</con:value></con:property><con:property><con:name>dbPassword</con:name><con:value>root</con:value></con:property><con:property><con:name>dbName</con:name><con:value>easyinventory</con:value></con:property><con:property><con:name>dbHost</con:name><con:value>localhost</con:value></con:property><con:property><con:name>dbPort</con:name><con:value>3306</con:value></con:property><con:property><con:name>dbConStr</con:name><con:value>jdbc:mysql://${#Project#dbHost}:${#Project#dbPort}/${#Project#dbName}?user=${#Project#dbUser}&amp;password=${#Project#dbPassword}</con:value></con:property><con:property><con:name>productId</con:name><con:value>29</con:value></con:property><con:property><con:name>supplierId</con:name><con:value>16</con:value></con:property><con:property><con:name>orderId</con:name><con:value>11</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
