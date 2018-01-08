@@ -1,6 +1,5 @@
 package com.example.easy.inventory.dto;
 
-
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -18,84 +17,101 @@ public class OrderDTO implements IBaseDTO, Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Integer id;
-	
+
 	private OrderStatus status;
 
-    private Date orderDate;
-    
-    private Date expectedDate;
-    
-    private Date deliveryDate;
-    
-    private String notes;
-    
-    private String type;
-	
-    private String paymentMode;
-    
-    private String paymentStatus;
-    
-    private Integer totalCost;
-    
-    private Integer totalPaid;
-    
-    private Integer totalBalance;
-    
-    @JsonIgnore
-    private Date createdOn;
-    @JsonIgnore
-    private Integer createdBy;
-    @JsonIgnore
-    private Date modifiedOn;
-    @JsonIgnore
+	private Date orderDate;
+
+	private Date expectedDate;
+
+	private Date deliveryDate;
+
+	private String notes;
+
+	private String type;
+
+	private String paymentMode;
+
+	private String paymentStatus;
+
+	private Integer totalCost;
+
+	private Integer totalPaid;
+
+	private Integer totalBalance;
+
+	@JsonIgnore
+	private Date createdOn;
+	@JsonIgnore
+	private Integer createdBy;
+	@JsonIgnore
+	private Date modifiedOn;
+	@JsonIgnore
 	private Integer modifiedBy;
-    @JsonIgnore
-    private Integer accountId;
-    
-    private Integer supplierId;
-    
-    private SupplierDTO supplier;
-    
-    
-    private List<OrderDetailsDTO> details;
+	@JsonIgnore
+	private Integer accountId;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer supplierId;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
+	private SupplierDTO supplier;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+	private Integer warehouseId;
+	
+	private WarehouseDTO warehouse;
 
-        OrderDTO orderDTO = (OrderDTO) o;
+	public WarehouseDTO getWarehouse() {
+		return warehouse;
+	}
 
-        if ( ! Objects.equals(id, orderDTO.id)) { return false; }
+	public void setWarehouse(WarehouseDTO warehouse) {
+		this.warehouse = warehouse;
+	}
 
-        return true;
-    }
+	public Integer getWarehouseId() {
+		return warehouseId;
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+	public void setWarehouseId(Integer warehouseId) {
+		this.warehouseId = warehouseId;
+	}
 
-    @Override
-    public String toString() {
-        return "OrderDTO{" +
-            "id=" + id +
-            ", order-date='" + orderDate + "'" +
-            '}';
-    }
+	private List<OrderDetailsDTO> details;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		OrderDTO orderDTO = (OrderDTO) o;
+
+		if (!Objects.equals(id, orderDTO.id)) {
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(id);
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDTO{" + "id=" + id + ", order-date='" + orderDate + "'" + '}';
+	}
 
 	public Date getCreatedOn() {
 		return createdOn;
@@ -184,7 +200,7 @@ public class OrderDTO implements IBaseDTO, Serializable {
 	public void setNotes(String notes) {
 		this.notes = notes;
 	}
-	
+
 	public String getType() {
 		return type;
 	}

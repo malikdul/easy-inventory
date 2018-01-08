@@ -38,12 +38,14 @@ import com.example.easy.inventory.dto.ProductDTO;
 import com.example.easy.inventory.dto.SaleDTO;
 import com.example.easy.inventory.dto.StockDTO;
 import com.example.easy.inventory.dto.SupplierDTO;
+import com.example.easy.inventory.dto.WarehouseDTO;
 import com.example.easy.inventory.service.ILookupService;
 import com.example.easy.inventory.service.IOrderService;
 import com.example.easy.inventory.service.IProductService;
 import com.example.easy.inventory.service.ISaleService;
 import com.example.easy.inventory.service.IStockService;
 import com.example.easy.inventory.service.ISupplierService;
+import com.example.easy.inventory.service.IWarehouseService;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import io.swagger.annotations.Api;
@@ -78,6 +80,9 @@ public class InventoryRestController extends BaseRestController {
 	
 	@Autowired
 	private ISaleService saleService;
+
+	@Autowired
+	private IWarehouseService warehouseService;
 
 	@RolesAllowed({ Roles.ROLE_SADMIN, Roles.ROLE_ADMIN, Roles.ROLE_OWNER, Roles.ROLE_USER })
 	@POST
@@ -386,6 +391,188 @@ public class InventoryRestController extends BaseRestController {
 		} catch (Exception e) {
 			logger.error("Error::getSupplierFrequencyReport::" + e.getMessage(), e);
 
+			return restResponseBuilder.withStatus(Response.Status.INTERNAL_SERVER_ERROR)
+					.withMessage(messages.get("server.error.check.details")).withDetails(e.getMessage()).build();
+		}
+	}
+	
+	@RolesAllowed({ Roles.ROLE_SADMIN, Roles.ROLE_ADMIN, Roles.ROLE_OWNER, Roles.ROLE_USER })
+	@POST
+	@Path("/warehouse/add")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Add/Update stock Warehouse", notes = "<b>This method is used to add/update Warehouse</b>", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON, response = WarehouseDTO.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Add/Update stock Warehouse", response = WarehouseDTO.class),
+			@ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "Unauthorized"),
+			@ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+			@ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "JSON parser exception, invalid request JSON"),
+			@ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems") })
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "Authorization", value = "Authorization token", required = true, dataType = "string", paramType = "header") })
+	
+	public Response addWarehouse(@Context HttpServletRequest request, @Valid WarehouseDTO requestVo) {
+		logger.info("Adding new stock Warehouse." + requestVo);
+		try {
+			userInfo = (UserInfo) securityContext.getUserPrincipal();
+			
+			if (userInfo == null) {
+				throw new CustomBadRequestException(messages.get("resource.unauthorized.access"));
+			}
+			
+			if (requestVo == null) {
+				throw new CustomBadRequestException(messages.get("bad.request.msg"));
+			}
+			
+			if(StringUtils.isEmpty(requestVo.getName())) {
+				throw new CustomBadRequestException(messages.get("warehouse.name.missing"));
+			}
+			
+			if (CollectionUtils.isEmpty(requestVo.getTelecoms())) {
+				throw new CustomBadRequestException(messages.get("warehouse.telecom.missing"));
+			}
+			
+			if (CollectionUtils.isEmpty(requestVo.getAddresses())) {
+				throw new CustomBadRequestException(messages.get("warehouse.address.missing"));
+			}
+			
+			logger.debug("User Info loaded::" + userInfo);
+			requestVo.setAccountId(userInfo.getAccountId());
+			requestVo.setCreatedBy(userInfo.getUserId());
+			return restResponseBuilder.withOkResponse(warehouseService.save(requestVo)).build();
+			
+		} catch (CustomBadRequestException e) {
+			logger.error("Error:: Adding new Warehouse::" + e.getMessage(), e);
+			return restResponseBuilder
+					.withBadRequest(e.getMessage())
+					.build();
+		} catch (Exception e) {
+			logger.error("Error:: Adding new stock Warehouse::" + e.getMessage(), e);
+			
+			return restResponseBuilder.withStatus(Response.Status.INTERNAL_SERVER_ERROR)
+					.withMessage(messages.get("server.error.check.details")).withDetails(e.getMessage()).build();
+		}
+	}
+	
+	@RolesAllowed({ Roles.ROLE_SADMIN, Roles.ROLE_ADMIN, Roles.ROLE_OWNER, Roles.ROLE_USER })
+	@POST
+	@Path("/warehouse/all")
+	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Get All stock Warehouses", notes = "<b>This method is used to Get All stock Warehouses</b>", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON, response = WarehouseDTO.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Return all Warehouses, possibly paginated.", response = WarehouseDTO.class, responseContainer = "List"),
+			@ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "Unauthorized"),
+			@ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+			@ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "JSON parser exception, invalid request JSON"),
+			@ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems") })
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "Authorization", value = "Authorization token", required = true, dataType = "string", paramType = "header") })
+	public Response getWarehouses(@Context HttpServletRequest request,
+			@JsonDeserialize(using = PageableDeserializer.class) Pageable pageable) {
+		try {
+			logger.info("Getting get all stock Warehouses ::" + pageable);
+			userInfo = (UserInfo) securityContext.getUserPrincipal();
+			if (userInfo == null) {
+				throw new CustomBadRequestException(messages.get("resource.unauthorized.access"));
+			}
+			
+			logger.debug("User Info loaded::" + userInfo);
+			logger.debug("Getting all stock Warehouses for account." + userInfo.getAccountId());
+			
+			return restResponseBuilder.withOkResponse(warehouseService.getAll(userInfo.getAccountId(), pageable))
+					.build();
+			
+		} catch (CustomBadRequestException e) {
+			logger.error("Error:: get Warehouses::" + e.getMessage(), e);
+			return restResponseBuilder
+					.withBadRequest(e.getMessage())
+					.build();
+		} catch (Exception e) {
+			logger.error("Error:: Get all stock Warehouses::" + e.getMessage(), e);
+			
+			return restResponseBuilder.withStatus(Response.Status.INTERNAL_SERVER_ERROR)
+					.withMessage(messages.get("server.error.check.details")).withDetails(e.getMessage()).build();
+		}
+	}
+	
+	
+	@DELETE
+	@Path("/warehouse/{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Delete Warehouse", notes = "<b>This method delete Warehouse by Id</b>")
+	@ApiResponses(value =
+{ @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Object Deleted", response = MessageResponseDTO.class),
+		@ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "Unauthorized"),
+		@ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+		@ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "JSON parser exception, invalid request JSON"),
+		@ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems") })
+	@ApiImplicitParams(
+			{ @ApiImplicitParam(name = "Authorization", value = "Authorization token", required = true, dataType = "string", paramType = "header") })
+	
+	public Response deleteWarehouse(@PathParam("id") Integer id)
+	{
+		try
+		{
+			userInfo = (UserInfo) securityContext.getUserPrincipal();
+			
+			if (userInfo == null) {
+				throw new CustomBadRequestException(messages.get("resource.unauthorized.access"));
+			}
+			
+			logger.debug("User Info loaded::" + userInfo);
+			logger.info("Deleting Warehouse by id::" + id);
+			warehouseService.delete(id);
+			return restResponseBuilder.withOkResponse(new InfoDTO("Warehouse deleted.")).build();
+		} catch (CustomBadRequestException e) {
+			logger.error("Error:: delete Warehouses::" + e.getMessage(), e);
+			return restResponseBuilder
+					.withBadRequest(e.getMessage())
+					.build();
+		} catch (Exception e) {
+			logger.error("Error:: Deleting Warehouse " + e.getMessage(), e);
+			return restResponseBuilder.withStatus(Response.Status.INTERNAL_SERVER_ERROR)
+					.withMessage(messages.get("server.error.check.details")).withDetails(e.getMessage()).build();
+		}
+		
+	}
+	
+	@RolesAllowed({ Roles.ROLE_SADMIN, Roles.ROLE_ADMIN, Roles.ROLE_OWNER, Roles.ROLE_USER })
+	@GET
+	@Path("/warehouse/frequency")
+	@Produces("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@ApiOperation(value = "Get All stock Warehouses", notes = "<b>This method is used to Get All stock Warehouses</b>", produces = MediaType.APPLICATION_JSON, consumes = MediaType.APPLICATION_JSON, response = WarehouseDTO.class)
+	@ApiResponses(value = {
+			@ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Return all Warehouses, possibly paginated.", response = WarehouseDTO.class, responseContainer = "List"),
+			@ApiResponse(code = HttpURLConnection.HTTP_UNAUTHORIZED, message = "Unauthorized"),
+			@ApiResponse(code = HttpURLConnection.HTTP_NOT_FOUND, message = "Not found"),
+			@ApiResponse(code = HttpURLConnection.HTTP_BAD_REQUEST, message = "JSON parser exception, invalid request JSON"),
+			@ApiResponse(code = HttpURLConnection.HTTP_INTERNAL_ERROR, message = "Internal server problems") })
+	@ApiImplicitParams({
+		@ApiImplicitParam(name = "Authorization", value = "Authorization token", required = true, dataType = "string", paramType = "header") })
+	public Response getWarehouseFrequencyReport(@Context HttpServletRequest request) {
+		try {
+			logger.info("get Warehouse Frequency Report");
+			userInfo = (UserInfo) securityContext.getUserPrincipal();
+			if (userInfo == null) {
+				throw new CustomBadRequestException(messages.get("resource.unauthorized.access"));
+			}
+			
+			logger.debug("User Info loaded::" + userInfo);
+			logger.debug("getWarehouseFrequencyReport for account." + userInfo.getAccountId());
+			
+			return restResponseBuilder.withOkResponse(warehouseService.getWarehouseFrequencyReport(userInfo.getAccountId()))
+					.build();
+			
+		} catch (CustomBadRequestException e) {
+			logger.error("Error:: get warehouses frequency report::" + e.getMessage(), e);
+			return restResponseBuilder
+					.withBadRequest(e.getMessage())
+					.build();
+		} catch (Exception e) {
+			logger.error("Error::getWarehouseFrequencyReport::" + e.getMessage(), e);
+			
 			return restResponseBuilder.withStatus(Response.Status.INTERNAL_SERVER_ERROR)
 					.withMessage(messages.get("server.error.check.details")).withDetails(e.getMessage()).build();
 		}

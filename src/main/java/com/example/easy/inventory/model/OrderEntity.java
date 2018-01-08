@@ -99,7 +99,19 @@ public class OrderEntity implements Serializable {
     @JoinColumn(name = "supplierId", referencedColumnName = "id", columnDefinition = "INT(11) UNSIGNED")
     private Integer supplierId;
     
-    public Integer getSupplierId() {
+//    @NotNull
+    @JoinColumn(name = "warehouseId", referencedColumnName = "id", columnDefinition = "INT(11) UNSIGNED")
+    private Integer warehouseId;
+    
+    public Integer getWarehouseId() {
+		return warehouseId;
+	}
+
+	public void setWarehouseId(Integer warehouseId) {
+		this.warehouseId = warehouseId;
+	}
+
+	public Integer getSupplierId() {
 		return supplierId;
 	}
 

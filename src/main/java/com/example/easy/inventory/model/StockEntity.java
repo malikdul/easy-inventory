@@ -62,6 +62,15 @@ public class StockEntity {
 	private Integer modifiedBy;
 	@JoinColumn(name = "accountId", referencedColumnName = "id", columnDefinition = "INT(11) UNSIGNED")
 	private Integer accountId;
+    public Integer getWarehouseId() {
+		return warehouseId;
+	}
+	public void setWarehouseId(Integer warehouseId) {
+		this.warehouseId = warehouseId;
+	}
+	@JoinColumn(name = "warehouseId", referencedColumnName = "id", columnDefinition = "INT(11) UNSIGNED")
+    private Integer warehouseId;
+	
 	@Column(name = "deleted")
 	private Boolean deleted = false;
 	

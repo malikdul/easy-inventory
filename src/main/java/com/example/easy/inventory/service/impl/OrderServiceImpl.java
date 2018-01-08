@@ -135,6 +135,7 @@ public class OrderServiceImpl implements IOrderService{
         			stock.setModifiedBy(order.getModifiedBy());
         			stock.setModifiedOn(order.getModifiedOn());
         		}
+        		stock.setWarehouseId(order.getWarehouseId());
         		stock.setUnitPrice(detail.getPurchasePrice());
         		stock.setTotalQty(stock.getTotalQty() + detail.getQuantity());
         		
